@@ -12,7 +12,12 @@ public class FridgeService {
     private final Set<ProductEntity> productEntities = new HashSet<>();
 
 
-    Collection<ProductEntity> listItems(boolean includeExpired) {
+    Collection<ProductEntity> listItems() {
+        return listItems(false);
+    }
+
+
+        Collection<ProductEntity> listItems(boolean includeExpired) {
         if (includeExpired)
             return new ArrayList<>(productEntities);
 
@@ -29,5 +34,8 @@ public class FridgeService {
         return productEntities.stream()
                 .filter(productEntity -> productEntity.getProduct().equals(product))
                 .collect(Collectors.toList());
+    }
+
+    void removeProduct(final ProductEntity ourApple) {
     }
 }
