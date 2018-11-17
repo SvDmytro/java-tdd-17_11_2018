@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Product {
     private String name;
 
-    Product(final String name) {
+    public Product(final String name) {
         this.name = name;
     }
 

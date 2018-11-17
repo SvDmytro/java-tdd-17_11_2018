@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class FridgeService {
 
-    private final Set<ProductEntity> productEntities = new HashSet<>();
+    private final Set<ProductEntity> productEntities = new HashSet();
 
 
     Collection<ProductEntity> listNonexpiredItems() {
@@ -18,7 +18,7 @@ public class FridgeService {
     }
 
     Collection<ProductEntity> listItems() {
-        return new HashSet<>(productEntities);
+        return new HashSet(productEntities);
     }
 
 
