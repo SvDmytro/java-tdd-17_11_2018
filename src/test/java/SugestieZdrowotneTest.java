@@ -17,10 +17,7 @@ public class SugestieZdrowotneTest {
     public void suggesterShouldReturnSuggestionForSugars() {
         SugestieZdrowotne sugestieZdrowotne = new SugestieZdrowotne();
         List<MockProduct50> mockList;
-        sugestieZdrowotne.zwrocSugestieZdrowotne(mockList);
-
-        //TODO
-
+        Assert.assertEquals("Kup więcej bialka lub wegli!", sugestieZdrowotne.returnSuggestionsForFat(mockList));
 
 
     }
