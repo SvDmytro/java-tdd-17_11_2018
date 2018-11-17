@@ -47,7 +47,7 @@ public class FridgeMonitoringTests {
         ProductEntity expiredApple = new ProductEntity(apple, expiredDate);
         fridgeService.addProduct(expiredApple);
 
-        Assert.assertEquals(0, fridgeService.listItems(true).size());
+        Assert.assertEquals(0, fridgeService.listItems(false).size());
     }
 
 
