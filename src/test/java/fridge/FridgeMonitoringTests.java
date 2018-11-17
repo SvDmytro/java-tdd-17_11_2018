@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.util.Date;
 
+
 public class FridgeMonitoringTests {
 
     @Test
@@ -20,10 +21,12 @@ public class FridgeMonitoringTests {
     public void addProductTest() {
         FridgeService fridgeService = new FridgeService();
 
-        Product apple = new Product("apple", new Date());
-        fridgeService.addProduct(apple);
+        Product apple = new Product("apple");
+
+        ProductEntity appleEntity = new ProductEntity(apple, new Date());
+        fridgeService.addProduct(appleEntity);
 
         Assert.assertEquals(1, fridgeService.listItems().size());
-        Assert.assertTrue(fridgeService.listItems().contains(apple));
+        Assert.assertTrue(fridgeService.listItems().contains(appleEntity));
     }
 }
