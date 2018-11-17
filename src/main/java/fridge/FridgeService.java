@@ -37,5 +37,6 @@ public class FridgeService {
     }
 
     void removeProduct(final ProductEntity ourApple) {
+        productEntities.remove(ourApple);
     }
 }
