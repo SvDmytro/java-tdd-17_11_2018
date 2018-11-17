@@ -1,6 +1,7 @@
 package fridge;
 
 
+import java.util.Date;
 import java.util.Objects;
 
 // abstract product

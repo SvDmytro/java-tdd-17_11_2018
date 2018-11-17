@@ -13,7 +13,7 @@ public class FridgeMonitoringTests {
     public void listEmptyFridgeTest() {
         FridgeService fridgeService = new FridgeService();
 
-        Assert.assertEquals(0, fridgeService.listItems().size());
+        Assert.assertEquals(0, fridgeService.listNonexpiredItems().size());
     }
 
 
@@ -23,11 +23,13 @@ public class FridgeMonitoringTests {
 
         Product apple = new Product("apple");
 
-        ProductEntity appleEntity = new ProductEntity(apple, new Date());
+        long timeOffset = 24*60*60*1000;
+        Date nonExpiredDate = new Date(System.currentTimeMillis() + timeOffset);
+        ProductEntity appleEntity = new ProductEntity(apple, nonExpiredDate);
         fridgeService.addProduct(appleEntity);
 
-        Assert.assertEquals(1, fridgeService.listItems().size());
-        Assert.assertTrue(fridgeService.listItems().contains(appleEntity));
+        Assert.assertEquals(1, fridgeService.listNonexpiredItems().size());
+        Assert.assertTrue(fridgeService.listNonexpiredItems().contains(appleEntity));
     }
 
 
@@ -38,11 +40,10 @@ public class FridgeMonitoringTests {
         Product apple = new Product("apple");
 
         long outdatedOffset = 4000;
-        ProductEntity appleEntity = new ProductEntity(apple, new Date(System.currentTimeMillis() - outdatedOffset));
+        Date expiredDate = new Date(System.currentTimeMillis() - outdatedOffset);
+        ProductEntity appleEntity = new ProductEntity(apple, expiredDate);
         fridgeService.addProduct(appleEntity);
 
-        Assert.assertEquals(0, fridgeService.listItems().size());
+        Assert.assertEquals(0, fridgeService.listNonexpiredItems().size());
     }
-
-
 }

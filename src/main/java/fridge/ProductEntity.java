@@ -19,4 +19,8 @@ public class ProductEntity {
     void setProduct(final Product product) {
         this.product = product;
     }
+
+    boolean isNotExpired() {
+        return this.expirationDate.after(new Date());
+    }
 }
