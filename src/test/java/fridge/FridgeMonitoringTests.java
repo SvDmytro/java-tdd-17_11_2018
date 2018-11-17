@@ -29,4 +29,20 @@ public class FridgeMonitoringTests {
         Assert.assertEquals(1, fridgeService.listItems().size());
         Assert.assertTrue(fridgeService.listItems().contains(appleEntity));
     }
+
+
+    @Test
+    public void addExpiredProductNotListedTest() {
+        FridgeService fridgeService = new FridgeService();
+
+        Product apple = new Product("apple");
+
+        long outdatedOffset = 4000;
+        ProductEntity appleEntity = new ProductEntity(apple, new Date(System.currentTimeMillis() - outdatedOffset));
+        fridgeService.addProduct(appleEntity);
+
+        Assert.assertEquals(0, fridgeService.listItems().size());
+    }
+
+
 }
