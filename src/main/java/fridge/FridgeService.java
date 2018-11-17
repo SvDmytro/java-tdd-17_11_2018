@@ -25,4 +25,10 @@ public class FridgeService {
     void addProduct(final ProductEntity productEntity) {
         productEntities.add(productEntity);
     }
+
+    Collection<Object> findByProduct(final Product product) {
+        return productEntities.stream()
+                .filter(productEntity -> productEntity.getProduct().equals(product))
+                .collect(Collectors.toList());
+    }
 }

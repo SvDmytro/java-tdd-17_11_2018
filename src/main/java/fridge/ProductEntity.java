@@ -12,6 +12,11 @@ public class ProductEntity {
         this.expirationDate = date;
     }
 
+    ProductEntity(final Product product) {
+        this.product = product;
+        this.expirationDate = new Date();
+    }
+
     Product getProduct() {
         return product;
     }
