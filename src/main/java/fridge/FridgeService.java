@@ -6,10 +6,10 @@ import java.util.Set;
 
 public class FridgeService {
 
-    private final Set<ProductEntity> productEntities = new HashSet<>();
+    private final Set<ProductEntity> productEntities = new HashSet();
 
     Collection<ProductEntity> listItems() {
-        return new HashSet<>(productEntities);
+        return new HashSet(productEntities);
     }
 
     void addProduct(final ProductEntity productEntity) {
