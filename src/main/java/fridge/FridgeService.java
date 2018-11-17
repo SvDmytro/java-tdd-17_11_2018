@@ -1,5 +1,6 @@
 package fridge;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -11,16 +12,14 @@ public class FridgeService {
     private final Set<ProductEntity> productEntities = new HashSet<>();
 
 
-    Collection<ProductEntity> listNonexpiredItems() {
+    Collection<ProductEntity> listItems(boolean includeExpired) {
+        if (includeExpired)
+            return new ArrayList<>(productEntities);
+
         return productEntities.stream()
                 .filter(ProductEntity::isNotExpired)
                 .collect(Collectors.toList());
     }
-
-    Collection<ProductEntity> listItems() {
-        return new HashSet<>(productEntities);
-    }
-
 
     void addProduct(final ProductEntity productEntity) {
         productEntities.add(productEntity);

@@ -19,7 +19,7 @@ public class FridgeMonitoringTests {
     public void listEmptyFridgeTest() {
         FridgeService fridgeService = new FridgeService();
 
-        Assert.assertEquals(0, fridgeService.listNonexpiredItems().size());
+        Assert.assertEquals(0, fridgeService.listItems(true).size());
     }
 
 
@@ -33,8 +33,8 @@ public class FridgeMonitoringTests {
         ProductEntity nonExpiredApple = new ProductEntity(apple, nonExpiredDate);
         fridgeService.addProduct(nonExpiredApple);
 
-        Assert.assertEquals(1, fridgeService.listNonexpiredItems().size());
-        Assert.assertTrue(fridgeService.listNonexpiredItems().contains(nonExpiredApple));
+        Assert.assertEquals(1, fridgeService.listItems(true).size());
+        Assert.assertTrue(fridgeService.listItems(true).contains(nonExpiredApple));
     }
 
 
@@ -47,7 +47,7 @@ public class FridgeMonitoringTests {
         ProductEntity expiredApple = new ProductEntity(apple, expiredDate);
         fridgeService.addProduct(expiredApple);
 
-        Assert.assertEquals(0, fridgeService.listNonexpiredItems().size());
+        Assert.assertEquals(0, fridgeService.listItems(true).size());
     }
 
 
