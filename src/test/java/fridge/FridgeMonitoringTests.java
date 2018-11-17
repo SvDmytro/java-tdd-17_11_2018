@@ -69,4 +69,15 @@ public class FridgeMonitoringTests {
         Assert.assertEquals(0, fridgeService.findByProduct(chocolate).size());
 
     }
+
+    @Test
+    public void deleteProductTest() {
+        FridgeService fridgeService = new FridgeService();
+
+        ProductEntity ourApple = new ProductEntity(apple);
+        fridgeService.addProduct(ourApple);
+        fridgeService.removeProduct(ourApple);
+
+        Assert.assertTrue(fridgeService.listItems(true).isEmpty());
+    }
 }
