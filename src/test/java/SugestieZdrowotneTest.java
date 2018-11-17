@@ -16,10 +16,12 @@ public class SugestieZdrowotneTest {
     @Test
     public void suggesterShouldReturnSuggestionForSugars() {
         SugestieZdrowotne sugestieZdrowotne = new SugestieZdrowotne();
+        List<MockProduct50> mockList;
+        sugestieZdrowotne.zwrocSugestieZdrowotne(mockList);
 
-        sugestieZdrowotne.zwrocSugestieZdrowotne();
-        List<MockProduct> mockList = new List<MockProduct>();
         //TODO
+
+
 
     }
 }
