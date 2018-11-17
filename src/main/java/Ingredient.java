@@ -18,4 +18,8 @@ public class Ingredient {
    }
 
 
+    public Product getProduct() {
+       return this.product;
+       
+    }
 }
