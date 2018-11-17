@@ -1,9 +1,9 @@
 import java.util.List;
 
 public class SugestieZdrowotne {
-    //    public String zwrocSugestieZdrowotne() {
-//        return "Twoje zdrowie jest OK !";
-//    }
+   int sredniaWegli;
+   int sredniaTluszczy;
+   int sredniaCukrow;
     List<Product> list = new List<Product>();
 
     public String returnSuggestionsForSugars(List<?> list) {
@@ -12,13 +12,12 @@ public class SugestieZdrowotne {
         int size = list.size();
 
         int sumWegli = 0;
-        for (Product:
-             list) {
+        for (Product product:list) {
             int i = 0;
-            int wegle = list.get(i).getWegle();
+            wegle = list.get(i).wegle();
             i++;
 
-            int sumWegli +=wegle;
+             sumWegli +=wegle;
         }
         int iloscProduktow = size + 1;
         int sredniaWegli = sumWegli / iloscProduktow;
@@ -31,14 +30,13 @@ public class SugestieZdrowotne {
     public String returnSuggestionsForFat(List<?> list) {
         int tluszcze;
         int size = list.size();
-
-        for (Product:
-             list) {
+        int sumaTluszczy = 0;
+        for (Product product:list) {
             int i = 0;
-            int tluszcze = list.get(i).getTluszcze();
+            tluszcze = list.get(i).tluszcze();
             i++;
 
-            int sumTluszczy +=tluszcze;
+             sumaTluszczy +=tluszcze;
         }
         int iloscProduktow = size + 1;
         int sredniaTluszczy = sumaTluszczy / iloscProduktow;
@@ -51,12 +49,12 @@ public class SugestieZdrowotne {
         int bialko;
         int size = list.size();
 
-        for (Product:
-             list) {
+        int sumaBialka = 0;
+        for (Product product:list) {
             int i = 0;
-            int bialko = list.get(i).getBialko();
+            bialko = list.get(i).bialko();
             i++;
-            int sumBialka +=bialko;
+            sumaBialka += bialko;
         }
         int iloscProduktow = size + 1;
         int sredniaBialka = sumaBialka / iloscProduktow;
